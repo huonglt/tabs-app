@@ -8,23 +8,15 @@ const Tabs = (props) => {
   const firstTabChild = children.filter(
     (child) => child.type.name === "Tab"
   )?.[0];
-  const [activeTabId, setActiveTabId] = useState(firstTabChild?.props.value);
+  const [activeTabId, setActiveTabId] = useState(firstTabChild.props.value);
 
   const handleTabClick = (tabId) => {
     setActiveTabId(tabId);
   };
 
-  useEffect(() => {
-    // get value of first Tab child
-    const firstTabChild = children.filter(
-      (child) => child.type.name === "Tab"
-    )[0].props.value;
-    console.log(`firstTabChild alue = ${firstTabChild}`);
-  }, []);
-
   return (
-    <div role="tablist" aria-label="Sample tab list" className="tabs">
-      <div className="tabContainer">
+    <div aria-label="Sample tab list" className="tabsGroup">
+      <div className="tabs" role="tablist">
         {children.map((child, index) => {
           console.log(
             `child.type = ${child.type.name}, child.label = ${child.label}, child.value = ${child.value}`
