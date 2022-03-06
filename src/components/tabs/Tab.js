@@ -2,7 +2,7 @@ import React from "react";
 
 const Tab = (props) => {
   const { selected, label, value, onClick } = props;
-  
+
   const onClickHandler = () => {
     onClick(value);
   };
@@ -13,6 +13,7 @@ const Tab = (props) => {
       aria-controls={value}
       value={value}
       onClick={onClickHandler}
+      tabIndex={selected ? 0 : -1}
     >
       {label}
     </div>
