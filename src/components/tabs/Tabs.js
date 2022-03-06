@@ -6,7 +6,8 @@ import "./tabs.css";
 const Tabs = (props) => {
   const { children } = props;
 
-  const [activeTabId, setActiveTabId] = useState(null);
+  const firstTabChildValue = "1";
+  const [activeTabId, setActiveTabId] = useState(firstTabChildValue);
 
   const handleTabClick = (tabId) => {
     setActiveTabId(tabId);
@@ -35,7 +36,18 @@ const Tabs = (props) => {
       })}
 
       {/* Tab panel container */}
-      <div></div>
+      <div>
+        {children.map((child, index) => {
+          if (
+            child.type.name === "TabPanel" &&
+            child.props.value === activeTabId
+          ) {
+            return child;
+          } else {
+            return null;
+          }
+        })}
+      </div>
     </div>
   );
 };
