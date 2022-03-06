@@ -1,7 +1,7 @@
 import React from "react";
 import Tab from "./Tab";
 
-const TabList = (props) => {
+const Tabs = (props) => {
   const { items } = props;
   return (
     <div role="tablist" aria-label="Sample tab list">
@@ -10,4 +10,4 @@ const TabList = (props) => {
   );
 };
 
-export default TabList;
+export default Tabs;
