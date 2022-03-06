@@ -6,7 +6,7 @@ import TabPanel from "./components/tabs/TabPanel";
 function App() {
   return (
     <div className="App">
-      <div style={{ marginTop: "30px" }}>
+      <div className="appContainer">
         <Tabs>
           <Tab label="ITEM ONE" value="1"></Tab>
           <Tab label="ITEM TWO" value="2"></Tab>

@@ -1,11 +1,15 @@
+.appContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
 .tabsGroup {
   overflow: visible;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 500px;
+  min-width: 500px;
 }
 
 .tabs {
