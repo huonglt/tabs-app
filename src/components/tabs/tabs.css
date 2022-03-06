@@ -8,15 +8,27 @@
   width: 500px;
 }
 
+.tabContainer {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #cccccc;
+}
+
 [role="tab"] {
   position: relative;
   margin: 0;
   overflow: visible;
+  display: inline;
+  cursor: pointer;
+  padding-bottom: 10px;
 }
+
 [role="tab"][aria-selected="true"] {
   border-radius: 0;
   outline: 0;
-  border: 1px solid blue;
+  border-bottom: 1px solid blue;
+  color: blue;
+  font-weight: 500;
 }
 
 [role="tabpanel"] {
