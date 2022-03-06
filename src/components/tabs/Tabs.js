@@ -16,7 +16,7 @@ const Tabs = (props) => {
 
   return (
     <div role="tablist" aria-label="Sample tab list" className="tabs">
-      <div>
+      <div className="tabContainer">
         {children.map((child, index) => {
           console.log(
             `child.type = ${child.type.name}, child.label = ${child.label}, child.value = ${child.value}`
