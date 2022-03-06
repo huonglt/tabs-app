@@ -6,10 +6,10 @@ import "./tabs.css";
 const Tabs = (props) => {
   const { children } = props;
 
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTabId, setActiveTabId] = useState(null);
 
-  const handleTabClick = (id) => {
-    console.log(`handleTabClick: id = ${id}`);
+  const handleTabClick = (tabId) => {
+    setActiveTabId(tabId);
   };
 
   return (
@@ -27,7 +27,7 @@ const Tabs = (props) => {
               value={child.props.value}
               label={child.props.label}
               onClick={handleTabClick}
-              id={child.props.id}
+              selected={child.props.id === activeTabId}
             ></Tab>
           );
         }

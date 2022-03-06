@@ -1,7 +1,7 @@
 import React from "react";
 
 const Tab = (props) => {
-  const { selected, tabindex, label, value, onClick } = props;
+  const { selected, label, value, onClick } = props;
   console.log(`Tab: label = ${label}`);
   const onClickHandler = () => {
     onClick(value);
@@ -11,7 +11,6 @@ const Tab = (props) => {
       role="tab"
       aria-selected={selected}
       aria-controls={value}
-      tabIndex={tabindex}
       value={value}
       onClick={onClickHandler}
     >
