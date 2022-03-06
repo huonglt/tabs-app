@@ -1,6 +1,7 @@
 import React from "react";
 import TabPanel from "./TabPanel";
 import Tab from "./Tab";
+import "./tabs.css";
 
 const Tabs = (props) => {
   const { children } = props;
