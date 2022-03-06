@@ -1,10 +1,17 @@
-import React from "react";
-import TabPanel from "./TabPanel";
+import React, { useState } from "react";
+
 import Tab from "./Tab";
 import "./tabs.css";
 
 const Tabs = (props) => {
   const { children } = props;
+
+  const [activeTab, setActiveTab] = useState(null);
+
+  const handleTabClick = (id) => {
+    console.log(`handleTabClick: id = ${id}`);
+  };
+
   return (
     <div role="tablist" aria-label="Sample tab list">
       {children.map((child, index) => {
@@ -17,8 +24,10 @@ const Tabs = (props) => {
           return (
             <Tab
               key={`tab-${index}`}
-              value={child.value}
+              value={child.props.value}
               label={child.props.label}
+              onClick={handleTabClick}
+              id={child.props.id}
             ></Tab>
           );
         }
