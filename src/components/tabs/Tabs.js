@@ -35,7 +35,7 @@ const Tabs = (props) => {
           return null;
         })}
       </div>
-      {/* Tab panel container */}
+      {/* Tab panel container. Show the TabPanel child whose value match with the active tab */}
       <div className="panelContainer">
         {children.map((child, index) => {
           if (
