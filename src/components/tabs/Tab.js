@@ -7,7 +7,7 @@ const Tab = (props) => {
     onClick(value);
   };
   return (
-    <button
+    <div
       role="tab"
       aria-selected={selected}
       aria-controls={value}
@@ -15,7 +15,7 @@ const Tab = (props) => {
       onClick={onClickHandler}
     >
       {label}
-    </button>
+    </div>
   );
 };
 
