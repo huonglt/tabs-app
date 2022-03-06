@@ -1,7 +1,7 @@
 import React from "react";
 
 const Tab = (props) => {
-  const { selected, name, id, tabindex, children, key } = props;
+  const { selected, name, id, tabindex, label, key } = props;
   return (
     <button
       role="tab"
@@ -11,7 +11,7 @@ const Tab = (props) => {
       tabindex={tabindex}
       key={key}
     >
-      {children}
+      {label}
     </button>
   );
 };
