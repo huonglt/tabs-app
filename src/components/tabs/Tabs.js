@@ -28,7 +28,7 @@ const Tabs = (props) => {
                 value={child.props.value}
                 label={child.props.label}
                 onClick={handleTabClick}
-                selected={child.props.value === activeTabId}
+                active={child.props.value === activeTabId}
               ></Tab>
             );
           }
