@@ -20,8 +20,6 @@
 }
 
 [role="tab"] {
-  position: relative;
-  margin: 0;
   overflow: visible;
   display: inline;
   cursor: pointer;
@@ -29,22 +27,7 @@
 }
 
 [role="tab"][aria-selected="true"] {
-  border-radius: 0;
-  outline: 0;
   border-bottom: 1px solid blue;
   color: blue;
   font-weight: 500;
-}
-
-[role="tabpanel"] {
-  position: relative;
-  z-index: 2;
-}
-
-[role="tabpanel"] p {
-  margin: 0;
-}
-
-[role="tabpanel"] * + p {
-  margin-top: 1em;
 }
