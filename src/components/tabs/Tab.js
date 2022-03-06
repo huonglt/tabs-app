@@ -2,7 +2,7 @@ import React from "react";
 
 const Tab = (props) => {
   const { selected, label, value, onClick } = props;
-  console.log(`Tab: label = ${label}`);
+  
   const onClickHandler = () => {
     onClick(value);
   };
