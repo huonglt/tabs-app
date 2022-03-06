@@ -1,7 +1,7 @@
 import "./App.css";
-import Tabs from "./components/Tabs";
-import Tab from "./components/Tab";
-import TabPanel from "./components/TabPanel";
+import Tabs from "./components/tabs/Tabs";
+import Tab from "./components/tabs/Tab";
+import TabPanel from "./components/tabs/TabPanel";
 
 function App() {
   return (
