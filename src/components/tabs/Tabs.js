@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Tab from "./Tab";
 import "./tabs.css";
 
@@ -19,10 +19,8 @@ const Tabs = (props) => {
   return (
     <div className="tabsGroup">
       <div className="tabs" role="tablist" aria-label={ariaLabel}>
+        {/* Render each Tab child */}
         {children.map((child, index) => {
-          console.log(
-            `child.type = ${child.type.name}, child.label = ${child.label}, child.value = ${child.value}`
-          );
           if (child.type.name === "Tab") {
             return (
               <Tab
