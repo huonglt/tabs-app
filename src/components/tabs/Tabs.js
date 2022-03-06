@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import Tab from "./Tab";
-import TabPanel from "./TabPanel";
 import "./tabs.css";
 
 const Tabs = (props) => {
