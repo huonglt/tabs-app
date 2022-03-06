@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tab from "./Tab";
 import "./tabs.css";
 
 const Tabs = (props) => {
   const { children } = props;
 
-  const firstTabChildValue = "1";
-  const [activeTabId, setActiveTabId] = useState(firstTabChildValue);
+  const firstTabChild = children.filter(
+    (child) => child.type.name === "Tab"
+  )?.[0];
+  const [activeTabId, setActiveTabId] = useState(firstTabChild?.props.value);
 
   const handleTabClick = (tabId) => {
     setActiveTabId(tabId);
   };
+
+  useEffect(() => {
+    // get value of first Tab child
+    const firstTabChild = children.filter(
+      (child) => child.type.name === "Tab"
+    )[0].props.value;
+    console.log(`firstTabChild alue = ${firstTabChild}`);
+  }, []);
 
   return (
     <div role="tablist" aria-label="Sample tab list" className="tabs">
