@@ -3,7 +3,7 @@ import Tab from "./Tab";
 import "./tabs.css";
 
 const Tabs = (props) => {
-  const { children } = props;
+  const { children, label } = props;
 
   const firstTabChild = children.filter(
     (child) => child.type.name === "Tab"
@@ -14,9 +14,11 @@ const Tabs = (props) => {
     setActiveTabId(tabId);
   };
 
+  const ariaLabel = label ?? "A tab group";
+
   return (
-    <div aria-label="Sample tab list" className="tabsGroup">
-      <div className="tabs" role="tablist">
+    <div className="tabsGroup">
+      <div className="tabs" role="tablist" aria-label={ariaLabel}>
         {children.map((child, index) => {
           console.log(
             `child.type = ${child.type.name}, child.label = ${child.label}, child.value = ${child.value}`
