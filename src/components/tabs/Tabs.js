@@ -36,7 +36,7 @@ const Tabs = (props) => {
         })}
       </div>
       {/* Tab panel container */}
-      <div>
+      <div className="panelContainer">
         {children.map((child, index) => {
           if (
             child.type.name === "TabPanel" &&
