@@ -1,4 +1,4 @@
-import { TwoTabsGroup } from "./data";
+import { NoTabPanel, TwoTabsGroup } from "./data";
 import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
@@ -95,6 +95,26 @@ describe("Tabs component", () => {
       // type space, content of tab 2 shown
       userEvent.keyboard("{space}");
       expect(screen.getByText("Tab 2 content")).toBeInTheDocument();
+    });
+  });
+
+  describe("NoTabPanel component, Tabs will be rendered but no tab panel content", () => {
+    it("render tablist, tab but no tabpanel role", () => {
+      render(<NoTabPanel />);
+
+      // role tablist exist
+      const tabListElem = screen.getByRole("tablist");
+      expect(tabListElem).toBeInTheDocument();
+      expect(tabListElem.getAttribute("aria-label")).toEqual(
+        "missing-tab-panel"
+      );
+
+      // render two elements with role tab
+      const tabs = screen.getAllByRole("tab");
+      expect(tabs.length).toEqual(2);
+
+      const tabpanels = screen.queryAllByRole("tabpanel");
+      expect(tabpanels.length).toEqual(0);
     });
   });
 });
