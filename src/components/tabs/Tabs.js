@@ -67,6 +67,10 @@ const Tabs = (props) => {
     const { keyCode } = event;
     if (keyCode === LEFT_ARROW_KEY || keyCode === RIGHT_ARROW_KEY) {
       if (tabListRef) {
+        /**
+         * user press RIGHT ARROW KEY, focus to next tab. If last tab, focus first tab
+         * user press LEFT ARROW KEY, focus previous tab. If first tab, focus last tab
+         */
         if (event.keyCode === RIGHT_ARROW_KEY) {
           setTabFocus(findNextTabIndex());
         } else if (event.keyCode === LEFT_ARROW_KEY) {
