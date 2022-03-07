@@ -15,9 +15,24 @@ function App() {
     <div className="App">
       <div className="appContainer">
         <div className="leftPane">
-          <div onClick={simpleSampleClick}>Simple Tab Groups</div>
-          <div onClick={multiSampleClick}>Multi Tab Groups</div>
-          <div onClick={linkSampleClick}>Tab Groups With Link To Tab</div>
+          <div
+            onClick={simpleSampleClick}
+            className={sample === "simple" ? "selected" : null}
+          >
+            Simple Tab Groups
+          </div>
+          <div
+            onClick={multiSampleClick}
+            className={sample === "multi" ? "selected" : null}
+          >
+            Multi Tab Groups
+          </div>
+          <div
+            onClick={linkSampleClick}
+            className={sample === "link" ? "selected" : null}
+          >
+            Tab Groups With Link To Tab
+          </div>
         </div>
         <div className="rightPane">
           {sample === "simple" && <SimpleTabGroup />}

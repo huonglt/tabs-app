@@ -58,7 +58,12 @@
 .leftPane div {
   margin: 30px 0;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.leftPane .selected {
+  color: blue;
+  font-weight: 600;
 }
 
 .tabGroupContainer {
