@@ -14,6 +14,7 @@ const Tab = (props) => {
       value={value}
       onClick={onClickHandler}
       tabIndex={active ? 0 : -1}
+      id={value}
     >
       {label}
     </div>
