@@ -2,12 +2,14 @@ import "./App.css";
 import React, { useState } from "react";
 import SimpleTabGroup from "./components/sample/SimpleTabGroup";
 import MultiTabGroup from "./components/sample/MultipTabGroup";
+import TabGroupWithLink from "./components/sample/TabGroupWithLink";
 
 function App() {
   const [sample, setSample] = useState("simple");
 
   const simpleSampleClick = () => setSample("simple");
   const multiSampleClick = () => setSample("multi");
+  const linkSampleClick = () => setSample("link");
 
   return (
     <div className="App">
@@ -15,11 +17,12 @@ function App() {
         <div className="leftPane">
           <div onClick={simpleSampleClick}>Simple Tab Groups</div>
           <div onClick={multiSampleClick}>Multi Tab Groups</div>
-          <div>Tab Groups with Link to tab</div>
+          <div onClick={linkSampleClick}>Tab Groups with Link to tab</div>
         </div>
         <div className="rightPane">
           {sample === "simple" && <SimpleTabGroup />}
           {sample === "multi" && <MultiTabGroup />}
+          {sample === "link" && <TabGroupWithLink />}
         </div>
       </div>
     </div>
