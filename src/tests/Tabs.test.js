@@ -39,5 +39,12 @@ describe("SimpleTabGroup", () => {
     expect(tabs[2].getAttribute("id")).toEqual("3");
     expect(tabs[2].getAttribute("aria-selected")).toEqual("false");
     expect(tabs[2].innerHTML).toEqual("ITEM 3");
+
+    // tab panel, tab panel will show content of tab 1
+    const tabPanel = screen.getByRole("tabpanel");
+    expect(tabPanel).toBeInTheDocument();
+    expect(tabPanel.getAttribute("aria-labelledby")).toEqual("1");
+    const content = screen.getByText("Content of tab 1", tabPanel);
+    expect(content).toBeInTheDocument();
   });
 });
