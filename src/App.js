@@ -13,6 +13,10 @@ function App() {
 
   return (
     <div className="App">
+      <div className="title">
+        A demo of tab groups with WAI ARIA specification
+      </div>
+      <div className="subTitle">Select a demo on the left to start</div>
       <div className="appContainer">
         <div className="leftPane">
           <div

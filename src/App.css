@@ -70,6 +70,17 @@
   margin-bottom: 100px;
 }
 
+.title {
+  margin: 30px auto 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.subTitle {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 @media only screen and (max-device-width: 667px) and (orientation: portrait) {
   .appContainer {
     flex-direction: column;
