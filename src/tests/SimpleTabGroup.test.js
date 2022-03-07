@@ -109,4 +109,16 @@ describe("SimpleTabGroup", () => {
     userEvent.keyboard("{enter}");
     expect(screen.getByText("Content of tab 2")).toBeInTheDocument();
   });
+
+  it("select tab by arrow key then press space key, content of the tab will be shown", () => {
+    render(<SimpleTabGroup />);
+
+    // press right arrow on tab 1, tab 2 will have focus
+    userEvent.type(screen.getByText("ITEM 1"), "{arrowright}");
+    expect(screen.getByText("ITEM 2")).toHaveFocus();
+
+    // type space, content of tab 2 shown
+    userEvent.keyboard("{space}");
+    expect(screen.getByText("Content of tab 2")).toBeInTheDocument();
+  });
 });
