@@ -37,7 +37,7 @@
 }
 
 [role="tab"][aria-selected="true"] {
-  border-bottom: 1px solid blue;
+  border-bottom: 2px solid blue;
   color: blue;
   font-weight: 500;
 }
