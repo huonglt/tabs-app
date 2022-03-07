@@ -12,10 +12,15 @@ const Tabs = (props) => {
   const tabListRef = useRef(null);
   const focusedTabRef = useRef(0); // ref to keep track which tab has focused. Originally tab at position 0
 
-  const firstTabChild = children.filter(
-    (child) => child.type.name === "Tab"
-  )?.[0];
-  const [activeTabId, setActiveTabId] = useState(firstTabChild.props.value);
+  /**
+   * Get value prop in the first Tab in the Tab list
+   */
+  const getFirstChildTabValue = () => {
+    const childTab = children.filter((child) => child.type.name === "Tab")?.[0];
+    return childTab?.props.value;
+  };
+
+  const [activeTabId, setActiveTabId] = useState(getFirstChildTabValue());
 
   const handleTabClick = (tabId) => {
     setActiveTabId(tabId);
