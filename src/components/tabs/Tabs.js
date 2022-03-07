@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Tab from "./Tab";
 import "./tabs.css";
 
@@ -7,6 +7,8 @@ const RIGHT_ARROW_KEY = 39;
 
 const Tabs = (props) => {
   const { children, label } = props;
+  const tabListRef = useRef(null);
+  const focusedTabRef = useRef(0); // ref to keep track which tab has focused. Originally tab at position 0
 
   const firstTabChild = children.filter(
     (child) => child.type.name === "Tab"
@@ -23,10 +25,17 @@ const Tabs = (props) => {
    * Handle arrow key
    */
   const handleKeyUp = (event) => {
-    if (event.keyCode === LEFT_ARROW_KEY) {
-      console.log(`left arrow key pressed`);
-    } else if (event.keyCode === RIGHT_ARROW_KEY) {
-      console.log(`right arrow key pressed`);
+    if (event.keyCode === LEFT_ARROW_KEY || event.keyCode === RIGHT_ARROW_KEY) {
+      if (tabListRef) {
+        const len = tabListRef.current.children.length;
+
+        if (event.keyCode === RIGHT_ARROW_KEY) {
+          const nextIndex = focusedTabRef.current + 1;
+          const focusedTabIndex = nextIndex < len ? nextIndex : 0;
+          tabListRef.current.children[focusedTabIndex].focus();
+          focusedTabRef.current = focusedTabIndex;
+        }
+      }
     }
   };
 
@@ -44,7 +53,12 @@ const Tabs = (props) => {
 
   return (
     <div className="tabsGroup">
-      <div className="tabs" role="tablist" aria-label={ariaLabel}>
+      <div
+        className="tabs"
+        role="tablist"
+        aria-label={ariaLabel}
+        ref={tabListRef}
+      >
         {/* Render each Tab child */}
         {children.map((child, index) => {
           if (child.type.name === "Tab") {
