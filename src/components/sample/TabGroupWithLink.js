@@ -14,7 +14,7 @@ const TabGroupWithLink = (props) => {
   return (
     <div className="relativeContainer">
       <div className="heading">Tab Group With Link To Tab Example</div>
-      <Tabs label="simple-tab" ref={tabGroupRef}>
+      <Tabs label="simple-tab" ref={tabGroupRef} focusOnMount={true}>
         <Tab label="ITEM 1" value="1"></Tab>
         <Tab label="ITEM 2" value="2"></Tab>
         <Tab label="ITEM 3" value="3"></Tab>
