@@ -14,7 +14,7 @@ const Tabs = (props) => {
     setActiveTabId(tabId);
   };
 
-  const ariaLabel = label ?? "A tab group";
+  const ariaLabel = label ?? "A simple tab group";
 
   return (
     <div className="tabsGroup">
