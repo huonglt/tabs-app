@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import Tabs from "../tabs/Tabs";
 import Tab from "../tabs/Tab";
 import TabPanel from "../tabs/TabPanel";
+import "./sample.css";
 
 const TabGroupWithLink = (props) => {
   const tabGroupRef = useRef();
@@ -12,6 +13,7 @@ const TabGroupWithLink = (props) => {
 
   return (
     <div style={{ position: "relative" }}>
+      <div className="heading">Tab Group With Link To Tab Example</div>
       <Tabs label="simple-tab" ref={tabGroupRef}>
         <Tab label="ITEM 1" value="1"></Tab>
         <Tab label="ITEM 2" value="2"></Tab>

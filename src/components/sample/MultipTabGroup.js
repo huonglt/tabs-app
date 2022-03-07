@@ -2,10 +2,12 @@ import React from "react";
 import Tabs from "../tabs/Tabs";
 import Tab from "../tabs/Tab";
 import TabPanel from "../tabs/TabPanel";
+import "./sample.css";
 
 const MultiTabGroup = (props) => {
   return (
     <div>
+      <div className="heading">Multi Tab Groups Example</div>
       <div className="tabGroupContainer">
         <Tabs label="tab-group-A">
           <Tab label="GROUP A - ITEM 1" value="tabGroupA-1"></Tab>
