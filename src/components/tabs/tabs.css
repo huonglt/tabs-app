@@ -32,7 +32,7 @@
   margin-right: 50px;
 }
 
-[role="tab"]:focus {
+[role="tab"]:focus-visible {
   background: #cccccc;
   outline: none;
 }
