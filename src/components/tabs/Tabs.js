@@ -59,7 +59,7 @@ const Tabs = React.forwardRef((props, ref) => {
    */
   const activateFocusedTab = () => {
     if (tabListRef) {
-      activeTabValue(
+      handleTabClick(
         tabListRef.current.children[focusedTabRef.current].getAttribute("value")
       );
     }
