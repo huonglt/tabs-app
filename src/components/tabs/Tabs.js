@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useImperativeHandle } from "react";
 import Tab from "./Tab";
 import "./tabs.css";
 
@@ -7,7 +7,7 @@ const RIGHT_ARROW_KEY = 39;
 const ENTER_KEY = 13;
 const SPACE_KEY = 32;
 
-const Tabs = (props) => {
+const Tabs = React.forwardRef((props, ref) => {
   const { children, label } = props;
   const tabListRef = useRef(null);
   const focusedTabRef = useRef(0); // ref to keep track which tab has focused. Originally tab at position 0
@@ -102,6 +102,15 @@ const Tabs = (props) => {
     };
   }, []);
 
+  /**
+   * Expose method selectTab via ref to make it possible to link to a specific tab in a tab group
+   */
+  useImperativeHandle(ref, () => ({
+    selectTab: (tabId) => {
+      handleTabClick(tabId);
+    },
+  }));
+
   return (
     <div className="tabsGroup">
       <div
@@ -141,6 +150,6 @@ const Tabs = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default Tabs;
