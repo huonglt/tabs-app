@@ -2,7 +2,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  padding: 40px;
+}
+
+.leftPane {
+  flex: 1;
+  text-align: left;
+}
+
+.rightPane {
+  flex: 1;
+}
+
+.leftPane div {
+  margin: 30px;
+  cursor: pointer;
 }
 
 .tabsGroup {

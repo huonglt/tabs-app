@@ -1,25 +1,17 @@
 import "./App.css";
-import Tabs from "./components/tabs/Tabs";
-import Tab from "./components/tabs/Tab";
-import TabPanel from "./components/tabs/TabPanel";
+import React, { useRef } from "react";
+import SimpleTabGroup from "./components/sample/SimpleTabGroup";
 
 function App() {
   return (
     <div className="App">
       <div className="appContainer">
-        <Tabs>
-          <Tab label="ITEM ONE" value="1"></Tab>
-          <Tab label="ITEM TWO" value="2"></Tab>
-          <Tab label="ITEM THREE" value="3"></Tab>
-          <TabPanel value="1">
-            <p>Paragraph 1</p>
-            <p>Paragraph 2</p>
-            <span>A span</span>
-            <button>A button</button>
-          </TabPanel>
-          <TabPanel value="2">Content of tab 2</TabPanel>
-          <TabPanel value="3">Content of tab 3</TabPanel>
-        </Tabs>
+        <div className="leftPane">
+          <div>Simple Tab Groups</div>
+          <div>Multi Tab Groups</div>
+          <div>Tab Groups with Link to tab</div>
+        </div>
+        <div className="rightPane">right pane</div>
       </div>
     </div>
   );
