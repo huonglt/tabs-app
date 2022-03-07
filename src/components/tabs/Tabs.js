@@ -53,9 +53,11 @@ const Tabs = (props) => {
    * Activate focused tab so its content panel will be shown
    */
   const activateFocusedTab = () => {
-    setActiveTabId(
-      tabListRef.current.children[focusedTabRef.current].getAttribute("value")
-    );
+    if (tabListRef) {
+      setActiveTabId(
+        tabListRef.current.children[focusedTabRef.current].getAttribute("value")
+      );
+    }
   };
 
   /**
