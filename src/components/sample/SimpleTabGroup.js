@@ -5,7 +5,7 @@ import TabPanel from "../tabs/TabPanel";
 
 const SimpleTabGroup = (props) => {
   return (
-    <Tabs>
+    <Tabs label="simple-tab">
       <Tab label="ITEM 1" value="1"></Tab>
       <Tab label="ITEM 2" value="2"></Tab>
       <Tab label="ITEM 3" value="3"></Tab>
