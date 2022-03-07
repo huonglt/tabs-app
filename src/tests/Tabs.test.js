@@ -48,5 +48,17 @@ describe("Tabs component", () => {
       tabPanelContent = screen.getByText("Tab 2 content");
       expect(tabPanelContent).toBeInTheDocument();
     });
+
+    it(`tab got focus when user press right arrow key`, () => {
+      render(<TwoTabsGroup />);
+
+      // press right arrow on tab 1, tab 2 will have focus
+      userEvent.type(screen.getByText("Tab 1"), "{arrowright}");
+      expect(screen.getByText("Tab 2")).toHaveFocus();
+
+      // press right arrow on tab 2, tab 1 will have focus
+      userEvent.type(screen.getByText("Tab 2"), "{arrowright}");
+      expect(screen.getByText("Tab 1")).toHaveFocus();
+    });
   });
 });
