@@ -61,5 +61,16 @@
 }
 
 .tabGroupContainer {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
+}
+
+@media only screen and (max-device-width: 667px) and (orientation: portrait) {
+  .appContainer {
+    flex-direction: column;
+  }
+
+  .leftPane {
+    flex: 1;
+    width: 100%;
+  }
 }
