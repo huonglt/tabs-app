@@ -5,7 +5,7 @@ import TabPanel from "../components/tabs/TabPanel";
 
 export const TwoTabsGroup = (props) => {
   return (
-    <Tabs label="two-tabs-group">
+    <Tabs label="two-tabs-group" focusOnMount={true}>
       <Tab label="Tab 1" value="tab1">
         Tab 1
       </Tab>
