@@ -46,8 +46,9 @@
 }
 
 .leftPane {
-  flex: 1;
   text-align: left;
+  width: 30%;
+  margin-right: 100px;
 }
 
 .rightPane {
@@ -55,6 +56,6 @@
 }
 
 .leftPane div {
-  margin: 30px;
+  margin: 30px 0;
   cursor: pointer;
 }
