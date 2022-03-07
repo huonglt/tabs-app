@@ -1,9 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import SimpleTabGroup from "../components/sample/SimpleTabGroup";
 
 describe("SimpleTabGroup", () => {
   it("Accessibility Features correct", () => {
-    const { debug } = render(<SimpleTabGroup />);
+    render(<SimpleTabGroup />);
 
     const tabListElem = screen.getByRole("tablist");
 
@@ -63,5 +64,38 @@ describe("SimpleTabGroup", () => {
     fireEvent.click(screen.getByText("ITEM 3"));
     tabPanelContent = screen.getByText("Content of tab 3");
     expect(tabPanelContent).toBeInTheDocument();
+  });
+
+  it(`tab got focus when user press right arrow key`, () => {
+    render(<SimpleTabGroup />);
+    //userEvent.tab();
+
+    // press right arrow on tab 1, tab 2 will have focus
+    userEvent.type(screen.getByText("ITEM 1"), "{arrowright}");
+    expect(screen.getByText("ITEM 2")).toHaveFocus();
+
+    // press right arrow on tab 2, tab 3 will have focus
+    userEvent.type(screen.getByText("ITEM 2"), "{arrowright}");
+    expect(screen.getByText("ITEM 3")).toHaveFocus();
+
+    // press right arrow on tab 3, tab 1 will have focus
+    userEvent.type(screen.getByText("ITEM 3"), "{arrowright}");
+    expect(screen.getByText("ITEM 1")).toHaveFocus();
+  });
+
+  it("tab got focus when user press left arrow key", () => {
+    render(<SimpleTabGroup />);
+
+    // tab 1 has focus so when press arrow left, tab 3 will have focus
+    userEvent.keyboard("{arrowleft}");
+    expect(screen.getByText("ITEM 3")).toHaveFocus();
+
+    // tab 3 has focus, when press arrow left, tab 2 will have focus
+    userEvent.keyboard("{arrowleft}");
+    expect(screen.getByText("ITEM 2")).toHaveFocus();
+
+    // tab 2 has focus, when press arrow left, tab 1 will have focus
+    userEvent.keyboard("{arrowleft}");
+    expect(screen.getByText("ITEM 1")).toHaveFocus();
   });
 });
