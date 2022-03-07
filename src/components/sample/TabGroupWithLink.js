@@ -12,7 +12,7 @@ const TabGroupWithLink = (props) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className="relativeContainer">
       <div className="heading">Tab Group With Link To Tab Example</div>
       <Tabs label="simple-tab" ref={tabGroupRef}>
         <Tab label="ITEM 1" value="1"></Tab>
@@ -29,7 +29,7 @@ const TabGroupWithLink = (props) => {
         </TabPanel>
       </Tabs>
 
-      <div style={{ position: "absolute", top: "500px" }}>
+      <div className="linkToTab">
         <a href="#2" onClick={handleClick}>
           Click to open tab 2
         </a>

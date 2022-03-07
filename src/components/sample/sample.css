@@ -3,3 +3,12 @@
   font-size: 18px;
   font-weight: 500;
 }
+
+.relativeContainer {
+  position: relative;
+}
+
+.linkToTab {
+  position: absolute;
+  top: 300px;
+}
