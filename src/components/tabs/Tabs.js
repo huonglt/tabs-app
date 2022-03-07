@@ -32,22 +32,34 @@ const Tabs = (props) => {
   };
 
   /**
+   * Find next tab index to be focused
+   */
+  const findNextTabIndex = () => {
+    const len = tabListRef.current.children.length;
+    const nextIndex = focusedTabRef.current + 1;
+    return nextIndex < len ? nextIndex : 0;
+  };
+
+  /**
+   * Find prev tab index to be focused
+   */
+  const findPrevTabIndex = () => {
+    const len = tabListRef.current.children.length;
+    const prevIndex = focusedTabRef.current - 1;
+    return prevIndex >= 0 ? prevIndex : len - 1;
+  };
+
+  /**
    * Handle arrow key
    */
   const handleKeyUp = (event) => {
     const { keyCode } = event;
     if (keyCode === LEFT_ARROW_KEY || keyCode === RIGHT_ARROW_KEY) {
       if (tabListRef) {
-        const len = tabListRef.current.children.length;
-
         if (event.keyCode === RIGHT_ARROW_KEY) {
-          const nextIndex = focusedTabRef.current + 1;
-          const focusedTabIndex = nextIndex < len ? nextIndex : 0;
-          setTabFocus(focusedTabIndex);
+          setTabFocus(findNextTabIndex());
         } else if (event.keyCode === LEFT_ARROW_KEY) {
-          const prevIndex = focusedTabRef.current - 1;
-          const focusedTabIndex = prevIndex >= 0 ? prevIndex : len - 1;
-          setTabFocus(focusedTabIndex);
+          setTabFocus(findPrevTabIndex());
         }
       }
     } else if (keyCode === ENTER_KEY || keyCode === SPACE_KEY) {
