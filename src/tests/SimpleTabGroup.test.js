@@ -47,4 +47,8 @@ describe("SimpleTabGroup", () => {
     const content = screen.getByText("Content of tab 1", tabPanel);
     expect(content).toBeInTheDocument();
   });
+
+  it("select tab by mouse correct", () => {
+    
+  });
 });
