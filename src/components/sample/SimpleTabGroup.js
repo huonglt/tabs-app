@@ -8,7 +8,7 @@ const SimpleTabGroup = (props) => {
   return (
     <div>
       <div className="heading">Simple Tab Group Example</div>
-      <Tabs label="simple-tab">
+      <Tabs label="simple-tab" focusOnMount={true}>
         <Tab label="ITEM 1" value="1"></Tab>
         <Tab label="ITEM 2" value="2"></Tab>
         <Tab label="ITEM 3" value="3"></Tab>
