@@ -50,6 +50,15 @@ const Tabs = (props) => {
   };
 
   /**
+   * Activate focused tab so its content panel will be shown
+   */
+  const activateFocusedTab = () => {
+    setActiveTabId(
+      tabListRef.current.children[focusedTabRef.current].getAttribute("value")
+    );
+  };
+
+  /**
    * Handle arrow key
    */
   const handleKeyUp = (event) => {
@@ -64,11 +73,9 @@ const Tabs = (props) => {
       }
     } else if (keyCode === ENTER_KEY || keyCode === SPACE_KEY) {
       /**
-       * When user press ENTER or SPACE key, select the focused tab
+       * When user press ENTER or SPACE key, activate the focused tab
        */
-      setActiveTabId(
-        tabListRef.current.children[focusedTabRef.current].getAttribute("value")
-      );
+      activateFocusedTab();
     }
   };
 
