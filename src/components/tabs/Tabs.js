@@ -8,7 +8,7 @@ const ENTER_KEY = 13;
 const SPACE_KEY = 32;
 
 const Tabs = React.forwardRef((props, ref) => {
-  const { children, label } = props;
+  const { children, label, focusOnMount } = props;
   const tabListRef = useRef(null);
   const focusedTabRef = useRef(0); // ref to keep track which tab has focused. Originally tab at position 0
 
@@ -117,7 +117,9 @@ const Tabs = React.forwardRef((props, ref) => {
    * Focus to the first Tab when mounted
    */
   useEffect(() => {
-    tabListRef.current.children[0].focus();
+    if (focusOnMount) {
+      tabListRef.current.children[0].focus();
+    }
   }, []);
 
   /**
