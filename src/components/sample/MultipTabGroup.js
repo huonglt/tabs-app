@@ -9,7 +9,7 @@ const MultiTabGroup = (props) => {
     <div>
       <div className="heading">Multi Tab Groups Example</div>
       <div className="tabGroupContainer">
-        <Tabs label="tab-group-A">
+        <Tabs label="tab-group-A" focusOnMount={true}>
           <Tab label="GROUP A - ITEM 1" value="tabGroupA-1"></Tab>
           <Tab label="GROUP A - ITEM 2" value="tabGroupA-2"></Tab>
           <Tab label="GROUP A - ITEM 3" value="tabGroupA-3"></Tab>
