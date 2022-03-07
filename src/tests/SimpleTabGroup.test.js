@@ -1,7 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import Tabs from "../components/tabs/Tab";
-import TabPanel from "../components/tabs/TabPanel";
-import Tab from "../components/tabs/Tab";
+import { render, screen, fireEvent } from "@testing-library/react";
 import SimpleTabGroup from "../components/sample/SimpleTabGroup";
 
 describe("SimpleTabGroup", () => {
@@ -48,7 +45,23 @@ describe("SimpleTabGroup", () => {
     expect(content).toBeInTheDocument();
   });
 
-  it("select tab by mouse correct", () => {
-    
+  it("select tab by mouse click, content of tab show correctly", () => {
+    render(<SimpleTabGroup />);
+    let tabPanelContent;
+
+    // click tab 1, content of tab 1 show
+    fireEvent.click(screen.getByText("ITEM 1"));
+    tabPanelContent = screen.getByText("Content of tab 1");
+    expect(tabPanelContent).toBeInTheDocument();
+
+    // click tab 2, content of tab 2 show
+    fireEvent.click(screen.getByText("ITEM 2"));
+    tabPanelContent = screen.getByText("Content of tab 2");
+    expect(tabPanelContent).toBeInTheDocument();
+
+    // click tab 3, content of tab 3 show
+    fireEvent.click(screen.getByText("ITEM 3"));
+    tabPanelContent = screen.getByText("Content of tab 3");
+    expect(tabPanelContent).toBeInTheDocument();
   });
 });
