@@ -60,5 +60,17 @@ describe("Tabs component", () => {
       userEvent.type(screen.getByText("Tab 2"), "{arrowright}");
       expect(screen.getByText("Tab 1")).toHaveFocus();
     });
+
+    it("tab got focus when user press left arrow key", () => {
+      render(<TwoTabsGroup />);
+
+      // tab 1 has focus so when press arrow left, tab 2 will have focus
+      userEvent.keyboard("{arrowleft}");
+      expect(screen.getByText("Tab 2")).toHaveFocus();
+
+      // tab 2 has focus, when press arrow left, tab 1 will have focus
+      userEvent.keyboard("{arrowleft}");
+      expect(screen.getByText("Tab 1")).toHaveFocus();
+    });
   });
 });
