@@ -84,5 +84,17 @@ describe("Tabs component", () => {
       userEvent.keyboard("{enter}");
       expect(screen.getByText("Tab 2 content")).toBeInTheDocument();
     });
+
+    it("select tab by arrow key then press space key, content of the tab will be shown", () => {
+      render(<TwoTabsGroup />);
+
+      // press right arrow on tab 1, tab 2 will have focus
+      userEvent.type(screen.getByText("Tab 1"), "{arrowright}");
+      expect(screen.getByText("Tab 2")).toHaveFocus();
+
+      // type space, content of tab 2 shown
+      userEvent.keyboard("{space}");
+      expect(screen.getByText("Tab 2 content")).toBeInTheDocument();
+    });
   });
 });
