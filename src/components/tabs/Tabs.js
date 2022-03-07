@@ -24,6 +24,14 @@ const Tabs = (props) => {
   const ariaLabel = label ?? "A simple tab group";
 
   /**
+   * Set focus to a tab at tabIndex
+   */
+  const setTabFocus = (tabIndex) => {
+    tabListRef.current.children[tabIndex].focus();
+    focusedTabRef.current = tabIndex;
+  };
+
+  /**
    * Handle arrow key
    */
   const handleKeyUp = (event) => {
@@ -35,13 +43,11 @@ const Tabs = (props) => {
         if (event.keyCode === RIGHT_ARROW_KEY) {
           const nextIndex = focusedTabRef.current + 1;
           const focusedTabIndex = nextIndex < len ? nextIndex : 0;
-          tabListRef.current.children[focusedTabIndex].focus();
-          focusedTabRef.current = focusedTabIndex;
+          setTabFocus(focusedTabIndex);
         } else if (event.keyCode === LEFT_ARROW_KEY) {
           const prevIndex = focusedTabRef.current - 1;
           const focusedTabIndex = prevIndex >= 0 ? prevIndex : len - 1;
-          tabListRef.current.children[focusedTabIndex].focus();
-          focusedTabRef.current = focusedTabIndex;
+          setTabFocus(focusedTabIndex);
         }
       }
     } else if (keyCode === ENTER_KEY || keyCode === SPACE_KEY) {
