@@ -33,7 +33,7 @@
 }
 
 [role="tab"]:focus {
-  border: 1px solid #cccccc;
+  background: #cccccc;
   outline: none;
 }
 
