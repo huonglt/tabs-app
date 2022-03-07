@@ -20,18 +20,9 @@ export const TwoTabsGroup = (props) => {
 
 export const NoTabPanel = (props) => {
   return (
-    <Tabs>
-      <Tab label="Tab 1"></Tab>
-      <Tab label="Tab 2"></Tab>
-    </Tabs>
-  );
-};
-
-export const NoTab = (props) => {
-  return (
-    <Tabs>
-      <Tab label="Tab 1"></Tab>
-      <Tab label="Tab 2"></Tab>
+    <Tabs label="missing-tab-panel">
+      <Tab label="Tab 1" value="tab1"></Tab>
+      <Tab label="Tab 1" value="tab2"></Tab>
     </Tabs>
   );
 };
