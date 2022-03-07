@@ -34,6 +34,11 @@ const Tabs = (props) => {
           const focusedTabIndex = nextIndex < len ? nextIndex : 0;
           tabListRef.current.children[focusedTabIndex].focus();
           focusedTabRef.current = focusedTabIndex;
+        } else if (event.keyCode === LEFT_ARROW_KEY) {
+          const prevIndex = focusedTabRef.current - 1;
+          const focusedTabIndex = prevIndex >= 0 ? prevIndex : len - 1;
+          tabListRef.current.children[focusedTabIndex].focus();
+          focusedTabRef.current = focusedTabIndex;
         }
       }
     }
