@@ -20,10 +20,10 @@ const Tabs = React.forwardRef((props, ref) => {
     return childTab?.props.value;
   };
 
-  const [activeTabId, setActiveTabId] = useState(getFirstChildTabValue());
+  const [activeTabValue, setActiveTabValue] = useState(getFirstChildTabValue());
 
   const handleTabClick = (tabValue) => {
-    setActiveTabId(tabValue);
+    setActiveTabValue(tabValue);
   };
 
   const ariaLabel = label ?? "A simple tab group";
@@ -59,7 +59,7 @@ const Tabs = React.forwardRef((props, ref) => {
    */
   const activateFocusedTab = () => {
     if (tabListRef) {
-      setActiveTabId(
+      activeTabValue(
         tabListRef.current.children[focusedTabRef.current].getAttribute("value")
       );
     }
@@ -128,7 +128,7 @@ const Tabs = React.forwardRef((props, ref) => {
                 value={child.props.value}
                 label={child.props.label}
                 onClick={handleTabClick}
-                active={child.props.value === activeTabId}
+                active={child.props.value === activeTabValue}
               ></Tab>
             );
           }
@@ -140,7 +140,7 @@ const Tabs = React.forwardRef((props, ref) => {
         {children.map((child, index) => {
           if (
             child.type.name === "TabPanel" &&
-            child.props.value === activeTabId
+            child.props.value === activeTabValue
           ) {
             return child;
           } else {
