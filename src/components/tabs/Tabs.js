@@ -27,8 +27,8 @@ const Tabs = (props) => {
    * Handle arrow key
    */
   const handleKeyUp = (event) => {
-    console.log(`event.keyCode = ${event.keyCode}`);
-    if (event.keyCode === LEFT_ARROW_KEY || event.keyCode === RIGHT_ARROW_KEY) {
+    const { keyCode } = event;
+    if (keyCode === LEFT_ARROW_KEY || keyCode === RIGHT_ARROW_KEY) {
       if (tabListRef) {
         const len = tabListRef.current.children.length;
 
@@ -44,7 +44,7 @@ const Tabs = (props) => {
           focusedTabRef.current = focusedTabIndex;
         }
       }
-    } else if (event.keyCode === ENTER_KEY || event.keyCode === SPACE_KEY) {
+    } else if (keyCode === ENTER_KEY || keyCode === SPACE_KEY) {
       /**
        * When user press ENTER or SPACE key, select the focused tab
        */
