@@ -22,8 +22,8 @@ const Tabs = React.forwardRef((props, ref) => {
 
   const [activeTabId, setActiveTabId] = useState(getFirstChildTabValue());
 
-  const handleTabClick = (tabId) => {
-    setActiveTabId(tabId);
+  const handleTabClick = (tabValue) => {
+    setActiveTabId(tabValue);
   };
 
   const ariaLabel = label ?? "A simple tab group";
@@ -106,8 +106,8 @@ const Tabs = React.forwardRef((props, ref) => {
    * Expose method selectTab via ref to make it possible to link to a specific tab in a tab group
    */
   useImperativeHandle(ref, () => ({
-    selectTab: (tabId) => {
-      handleTabClick(tabId);
+    selectTab: (tabValue) => {
+      handleTabClick(tabValue);
     },
   }));
 
