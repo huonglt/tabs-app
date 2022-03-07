@@ -26,8 +26,6 @@ const Tabs = React.forwardRef((props, ref) => {
     setActiveTabValue(tabValue);
   };
 
-  const ariaLabel = label ?? "A simple tab group";
-
   /**
    * Set focus to a tab at tabIndex
    */
@@ -67,9 +65,22 @@ const Tabs = React.forwardRef((props, ref) => {
 
   /**
    * Handle arrow key
+   * Ignore key press event if the active element not this tab groups. This to make sure navigation with keyboard is correct with multi tabs
    */
   const handleKeyUp = (event) => {
     const { keyCode } = event;
+    const activeElementAriaLabel =
+      document.activeElement.getAttribute("aria-label");
+    const activeElementParentAriaLabel =
+      document.activeElement.parentElement.getAttribute("aria-label");
+
+    if (
+      activeElementAriaLabel !== label &&
+      activeElementParentAriaLabel !== label
+    ) {
+      // skip here cause key press on a different tab group or different element
+      return;
+    }
     if (keyCode === LEFT_ARROW_KEY || keyCode === RIGHT_ARROW_KEY) {
       if (tabListRef) {
         /**
@@ -103,6 +114,13 @@ const Tabs = React.forwardRef((props, ref) => {
   }, []);
 
   /**
+   * Focus to the first Tab when mounted
+   */
+  useEffect(() => {
+    tabListRef.current.children[0].focus();
+  }, []);
+
+  /**
    * Expose method selectTab via ref to make it possible to link to a specific tab in a tab group
    */
   useImperativeHandle(ref, () => ({
@@ -113,12 +131,7 @@ const Tabs = React.forwardRef((props, ref) => {
 
   return (
     <div className="tabsGroup">
-      <div
-        className="tabs"
-        role="tablist"
-        aria-label={ariaLabel}
-        ref={tabListRef}
-      >
+      <div className="tabs" role="tablist" aria-label={label} ref={tabListRef}>
         {/* Render each Tab child */}
         {children.map((child, index) => {
           if (child.type.name === "Tab") {
