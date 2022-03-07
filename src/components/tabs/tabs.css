@@ -32,6 +32,11 @@
   margin-right: 50px;
 }
 
+[role="tab"]:focus {
+  border: 1px solid #cccccc;
+  outline: none;
+}
+
 [role="tab"]:hover {
   color: rgb(0, 114, 229);
 }
