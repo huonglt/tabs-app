@@ -1,5 +1,5 @@
 import TabGroups from "../components/sample/TabGroups";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 describe("TabGroups", () => {
   it("Tab Groups A & B render correctly", () => {
