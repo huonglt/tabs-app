@@ -30,20 +30,20 @@ const MultiTabGroup = (props) => {
 
       <div className="tabGroupContainer">
         <Tabs label="tab-group-B">
-          <Tab label="GROUP B ITEM 1" value="tabGroupB-1"></Tab>
-          <Tab label="GROUP B ITEM 2" value="tabGroupB-2"></Tab>
-          <Tab label="GROUP B ITEM 3" value="tabGroupB-3"></Tab>
+          <Tab label="GROUP B - TAB 1" value="tabGroupB-1"></Tab>
+          <Tab label="GROUP B - TAB 2" value="tabGroupB-2"></Tab>
+          <Tab label="GROUP B - TAB 3" value="tabGroupB-3"></Tab>
           <TabPanel value="tabGroupB-1">
             <p>Tab Group B</p>
-            <p>Content of Item 1</p>
+            <p>Content of Tab 1</p>
           </TabPanel>
           <TabPanel value="tabGroupB-2">
             <p>Tab Group B</p>
-            <p>Content of Item 2</p>
+            <p>Content of Tab 2</p>
           </TabPanel>
           <TabPanel value="tabGroupB-3">
             <p>Tab Group B</p>
-            <p>Content of Item 3</p>
+            <p>Content of Tab 3</p>
           </TabPanel>
         </Tabs>
       </div>
