@@ -7,7 +7,8 @@ import "./sample.css";
 const TabGroupWithLink = (props) => {
   const tabGroupRef = useRef();
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
     tabGroupRef.current.selectTab("2");
   };
 
