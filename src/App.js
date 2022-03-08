@@ -23,7 +23,7 @@ function App() {
             onClick={simpleSampleClick}
             className={sample === "simple" ? "selected" : null}
           >
-            Simple Tab Groups
+            Simple Tab Group
           </div>
           <div
             onClick={multiSampleClick}
@@ -35,7 +35,7 @@ function App() {
             onClick={linkSampleClick}
             className={sample === "link" ? "selected" : null}
           >
-            Tab Groups With Link To Tab
+            Tab Group With Link To Tab
           </div>
         </div>
         <div className="rightPane">
