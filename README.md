@@ -3,7 +3,7 @@
 This app is bootstrapped with [Create React App](https://github.com/facebook/create-react-app) for a speedy development.
 
 ### Requirements
-node v16.13.2 and above
+node v16.13.2 and above\
 npm v8.1.2 and above
 
 ### To set up
