@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import SimpleTabGroup from "./components/sample/SimpleTabGroup";
-import MultiTabGroup from "./components/sample/MultipTabGroup";
+import TabGroups from "./components/sample/TabGroups";
 import TabGroupWithLink from "./components/sample/TabGroupWithLink";
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
         </div>
         <div className="rightPane">
           {sample === "simple" && <SimpleTabGroup />}
-          {sample === "multi" && <MultiTabGroup />}
+          {sample === "multi" && <TabGroups />}
           {sample === "link" && <TabGroupWithLink />}
         </div>
       </div>
