@@ -40,4 +40,19 @@ describe("App component", () => {
     expect(screen.getByText("Tab Group B")).toBeInTheDocument();
     expect(screen.getByText("Content of Tab 1")).toBeInTheDocument();
   });
+
+  it("click Tab Group With Link To Tab, tab group with link to tab component will be shown", () => {
+    render(<App />);
+    fireEvent.click(screen.getByText("Tab Group With Link To Tab"));
+
+    // component TabGroupWithLink shown correctly
+    expect(
+      screen.getByText("Tab Group With Link To Tab Example")
+    ).toBeInTheDocument();
+    expect(screen.getByText("ITEM 1")).toBeInTheDocument();
+    expect(screen.getByText("ITEM 2")).toBeInTheDocument();
+    expect(screen.getByText("ITEM 3")).toBeInTheDocument();
+    expect(screen.getByText("Content of tab 1")).toBeInTheDocument();
+    expect(screen.getByText("Click to open tab 2")).toBeInTheDocument();
+  });
 });
