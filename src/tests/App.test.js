@@ -3,6 +3,16 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 describe("App component", () => {
+  it("title shown correctly", () => {
+    render(<App />);
+    expect(
+      screen.getByText("A demo of tab groups with WAI ARIA specification")
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("Select a demo on the left to start")
+    ).toBeInTheDocument();
+  });
+
   it("left panel shows correctly", () => {
     render(<App />);
     expect(screen.getByText("Simple Tab Group")).toBeInTheDocument();
